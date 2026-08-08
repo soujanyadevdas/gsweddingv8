@@ -1,0 +1,1667 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #E5CC9D;
+    font-family: 'Cormorant Garamond', serif;
+    /* overflow-x: hidden;
+    overflow-y: auto; */
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Envelope Image */
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Content */
+
+.hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #E5CC9D;
+}
+
+/* MESSAGE FROM */
+.text-top {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    color: #E5CC9D;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    animation: slideUp 1s ease forwards;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Couple Name */
+.names {
+    position: absolute;
+    top: 255px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    color: #E5CC9D;
+    font-family: 'Allura', cursive;
+    font-size: 35px;
+    white-space: nowrap;
+    animation: slideUp 1s ease forwards;
+}
+
+/* Tap Text */
+.tap-text {
+    position: absolute;
+    left: 50%;
+    bottom: 45px;
+    transform: translateX(-50%);
+    color: #E5CC9D;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    z-index: 5;
+    animation: blink 1.5s infinite;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Clickable area over the wax seal */
+
+#sealButton {
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 105px;
+    /* Adjust if needed */
+
+    transform: translateX(-50%);
+
+    width: 170px;
+    height: 170px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+
+    z-index: 20;
+
+    background: transparent;
+
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.08);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+/* Blink Animation */
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .4;
+    }
+}
+
+/* slideUp */
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 80px);
+    }
+
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Pulse */
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* Blink */
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: .45;
+    }
+
+}
+
+/* Fade */
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:768px) {
+
+    .message {
+        font-size: 18px;
+        top: 30px;
+    }
+
+    .names {
+        font-size: 42px;
+        top: 220px;
+    }
+
+    .seal {
+        width: 110px;
+        bottom: 120px;
+    }
+
+    .tap {
+        font-size: 22px;
+        bottom: 28px;
+    }
+
+}
+
+/* .invitation-page {
+
+    position: fixed;
+    inset: 0;
+
+    background: #F7EAD5;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 1s ease;
+
+    overflow-y: auto;
+
+    scroll-behavior: smooth;
+
+} */
+
+/* .invitation-page.show {
+
+    opacity: 1;
+    visibility: visible;
+
+} */
+
+/* Card */
+
+.page2-image {
+    width: min(75vw, 750px);
+    display: block;
+
+    /* transform: translateY(80px) scale(.96); */
+    opacity: 0;
+
+    transition:
+        transform 1s cubic-bezier(.18, .9, .2, 1),
+        opacity 1s ease;
+}
+
+.invitation-page.show .page2-image {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.page3-image {
+
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+
+}
+
+.invitation-page {
+    position: relative;
+    width: 100%;
+    background: #F7EAD5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .8s;
+
+    /* transform: translateY(40px); */
+    /* pointer-events: none; */
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.invitation-page.show {
+    opacity: 1;
+    visibility: visible;
+    /* transform: translateY(0);
+    pointer-events: auto; */
+}
+
+/* Card Animation */
+
+/* .invitation-page.show .page2-image {
+
+    transform: translateY(0) scale(1);
+
+    opacity: 1;
+
+} */
+
+/* Continue Button */
+
+#continueBtn {
+
+    margin-top: 35px;
+
+    padding: 16px 42px;
+
+    background: #7C1521;
+
+    color: #F7EAD5;
+
+    border: none;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition: .7s;
+
+}
+
+.invitation-page.show #continueBtn {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition-delay: 1.4s;
+
+}
+
+#continueBtn:hover {
+
+    background: #66111b;
+
+}
+
+body {
+
+    transition: opacity .8s ease;
+
+}
+
+body.fadeOut {
+
+    opacity: 0;
+
+}
+
+/* ===========================
+   PAGE 3
+=========================== */
+
+.page3 {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("page3.JPG") center center/cover no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* overflow: hidden; */
+
+}
+
+/* ===========================
+   PAGE 4
+=========================== */
+
+.page4 {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("page5.png") center center/cover no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* overflow: hidden; */
+
+}
+
+/* .page5 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 1s ease;
+} */
+
+/* Transparent cream overlay */
+
+.page3-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(247, 234, 213, 0.489);
+
+}
+
+/* Content */
+
+.page3-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    color: #7C1521;
+
+    width: 90%;
+
+}
+
+/* Heading */
+
+.title {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 2.0rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+
+    animation: fadeUp 1s ease;
+
+}
+
+/* Groom */
+
+.groom-name {
+
+    font-family: 'Allura', cursive;
+
+    font-size: 4rem;
+
+    font-weight: 400;
+
+    margin-bottom: 5px;
+
+    animation: fadeUp 1s .2s both;
+
+}
+
+.parents {
+
+    font-family: 'Allura', cursive;
+
+    font-size: 1.3rem;
+
+    margin-bottom: 45px;
+
+    animation: fadeUp 1s .4s both;
+
+}
+
+/* WITH */
+
+.with {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 2rem;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 45px;
+
+    animation: fadeUp 1s .6s both;
+
+}
+
+/* Bride */
+
+.bride-name {
+
+    font-family: 'Allura', cursive;
+
+    font-size: 3rem;
+
+    font-weight: 400;
+
+    margin-bottom: 5px;
+
+    animation: fadeUp 1s .8s both;
+
+}
+
+/* Animation */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+        transform: translateY(40px);
+
+    }
+
+    to {
+
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .page3 {
+        width: 100vw;
+        min-height: 100vh;
+        background-image: url("page3.JPG");
+        background-size: 140%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        object-fit: contain;
+    }
+
+    .page3-overlay {
+        background: rgba(247, 234, 213, 0.45);
+    }
+
+    .page3-content {
+        width: 92%;
+        padding: 0 18px;
+    }
+
+    .title {
+
+        font-size: 2.0rem;
+        font-weight: 800;
+
+    }
+
+    .groom-name,
+    .bride-name {
+
+        font-size: 3rem;
+        font-weight: 600;
+    }
+
+    .parents {
+
+        font-size: 1.3rem;
+
+    }
+
+    .with {
+
+        font-size: 2rem;
+        letter-spacing: 4px;
+
+    }
+
+    .last-page {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: 'Allura', cursive;
+        animation: fadeUp 1s .4s both;
+    }
+
+    .rsvp-page {
+        font-size: 2.5rem;
+        font-weight: 600;
+        font-family: '';
+        animation: fadeUp 1s .4s both;
+        margin-bottom: 10px;
+    }
+
+    .page8-content {
+        width: 50%;
+        /* padding: 0 18px; */
+    }
+
+}
+
+.page8-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    color: #7C1521;
+
+    width: 40%;
+
+}
+
+.last-page {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Allura', cursive;
+    animation: fadeUp 1s .4s both;
+}
+
+.rsvp-page {
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: '';
+    animation: fadeUp 1s .4s both;
+    margin-bottom: 10px;
+}
+
+/* Soft cream overlay */
+
+.page4-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(247, 234, 213, .45);
+    z-index: 2;
+}
+
+/* Lace frame */
+
+.frame-image {
+    position: absolute;
+
+    width: min(70vw, 750px);
+
+    z-index: 3;
+
+    pointer-events: none;
+}
+
+/* Text */
+
+.page4-content {
+    position: absolute;
+
+    z-index: 4;
+
+    width: min(20vw, 700px);
+
+    text-align: center;
+
+    color: #7C1521;
+}
+
+.date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+
+.quote1 {
+    font-family: 'Allura', cursive;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.05;
+}
+
+.couple {
+    margin-top: 50px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    letter-spacing: 2px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+.page5 {
+
+    min-height: 100vh;
+    background: #F7EAD5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 25px;
+}
+
+.page5-content {
+
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+}
+
+.blessing {
+
+    font-family: 'Allura', cursive;
+    color: #7C1521;
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.divider {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #7C1521;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.divider span {
+
+    width: 170px;
+    height: 2px;
+    background: #7C1521;
+}
+
+.quote,
+.invite {
+
+    color: #7C1521;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.presence {
+
+    font-family: 'Allura', cursive;
+    color: #7C1521;
+    font-size: 4.5rem;
+    font-weight: 400;
+    margin-bottom: 55px;
+}
+
+#countdown {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    background: #fff6ea;
+
+    padding: 25px 40px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
+
+    width: max-content;
+
+    margin: auto;
+}
+
+.time-box {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.time-box span {
+
+    color: #7C1521;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.time-box small {
+
+    color: #7C1521;
+    letter-spacing: 2px;
+    font-size: .7rem;
+}
+
+.colon {
+
+    font-size: 3rem;
+    color: #7C1521;
+    font-weight: bold;
+}
+
+@media(max-width:768px) {
+
+    .blessing {
+
+        font-size: 2.8rem;
+
+    }
+
+    .quote,
+    .invite {
+
+        font-size: 1.2rem;
+
+    }
+
+    .presence {
+
+        font-size: 3rem;
+
+    }
+
+    #countdown {
+
+        padding: 15px;
+        gap: 8px;
+    }
+
+    .time-box span {
+
+        font-size: 2rem;
+
+    }
+
+    .colon {
+
+        font-size: 2rem;
+
+    }
+
+    .divider span {
+
+        width: 70px;
+
+    }
+
+}
+
+.page6 {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url("page6.JPG") center center/contain no-repeat;
+    position: relative;
+
+}
+
+.page6 img {
+
+    height: 95vh;
+    width: auto;
+    object-fit: contain;
+}
+
+/* PAGE 7 */
+.page7 {
+    width: 100%;
+    min-height: 100vh;
+    background: #F7EAD5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 70px 0 40px;
+    overflow: hidden;
+}
+
+/* Heading */
+
+/* .page7-title {
+    font-family: "Allura", cursive;
+    font-size: 42px;
+    color: #7C1521;
+    margin-bottom: 5px;
+    text-align: center;
+} */
+
+/* Carousel */
+
+.carousel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 12vw 30px;
+
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cards */
+
+.event-card {
+
+    flex: 0 0 380px;
+    width: 340px;
+    height: 450px;
+
+    background: url("card1.png") center/contain no-repeat;
+
+    scroll-snap-align: center;
+
+    transition: .35s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px) scale(1.04);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media screen and (max-width:768px) {
+
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        width: 100%;
+        min-height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+}
+
+.countdown {
+    width: min(90vw, 500px);
+    margin: auto;
+}
+
+.countdown-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.time {
+    flex: 1;
+}
+
+.time h2 {
+    font-size: clamp(28px, 8vw, 60px);
+}
+
+.time span {
+    font-size: 12px;
+}
+
+
+/* =========================
+   PAGE 4 - Tablet & Mobile
+========================= */
+@media (max-width:768px) {
+
+    /* .page4 {
+
+        width: 100%;
+        min-height: 80vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 10px;
+        background: url("page5.png") center center / contain no-repeat;
+    } */
+
+    /* .page4 img {
+
+        width: 95%;
+        max-width: 400px;
+
+        height: auto;
+        object-fit: contain;
+    } */
+
+    .page4 {
+        width: 100vw;
+        height: auto;
+        background-image: url("page5.png");
+        background-position: center center;
+        background-repeat: no-repeat;
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        object-fit: contain;
+        /* margin-top: -50px; */
+    }
+
+    .frame-image {
+        flex: 0 0 78vw;
+        position: absolute;
+        width: min(0vw, 750px);
+        /* z-index: 3; */
+        pointer-events: none;
+        transition: .35s ease;
+    }
+
+    .date {
+        font-family: 'Cormorant Garamond', serif;
+        /* font-size: 12px; */
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        /* font-weight: 800; */
+
+        font-size: 1.0rem;
+        font-weight: 800;
+        /* width: 200px;
+        text-align: justify; */
+    }
+
+    .quote1 {
+        font-family: 'Allura', cursive;
+        font-size: 18px;
+        /* line-height: 1.3; */
+        width: 90%;
+        margin: 0 auto;
+        font-weight: 600;
+        /* width: 200px; */
+        /* text-align: justify; */
+        text-align: center;
+    }
+
+    .page4-content {
+        flex: 0 0 78vw;
+        position: absolute;
+
+        /* z-index: 4; */
+
+        width: min(80vw, 700px);
+
+        text-align: center;
+
+        color: #7C1521;
+    }
+
+    /* .page3-overlay {
+        background: rgba(247, 234, 213, 0.45);
+    }
+
+    .page3-content {
+        width: 92%;
+        padding: 0 18px;
+    } */
+
+
+}
+
+@media (max-width:480px) {
+
+    .page4 {
+
+        padding: 10px;
+    }
+
+    .page4 img {
+
+        width: 118%;
+        transform: scale(1.12);
+
+        height: auto;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .page7 {
+
+        padding: 40px 0 20px;
+        min-height: auto;
+
+    }
+
+    /* .page7-title {
+
+        font-size: 22px;
+        margin-bottom: 5px;
+
+    } */
+
+    .carousel {
+
+        justify-content: flex-start;
+
+        gap: 10px;
+
+        padding: 0 20px 20px;
+
+    }
+
+    .event-card {
+
+        /* flex: 0 0 88vw; */
+        width: 78vw;
+        height: 138vw;
+        max-height: 560px;
+
+    }
+
+}
+
+.haldi-card {
+
+    width: 360px;
+    height: 620px;
+
+    background: url(card1.png) center/contain no-repeat;
+
+    position: relative;
+}
+
+.card-content {
+
+    position: absolute;
+
+    top: 120px;
+    left: 52px;
+    right: 52px;
+    bottom: 48px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-title {
+
+    color: #F7EAD5;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 16px;
+
+    text-align: center;
+
+    /* line-height: 1.3; */
+}
+
+.event-name {
+
+    color: #F7EAD5;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    /* line-height: 1.3; */
+}
+
+.event-image {
+
+    width: 125px;
+
+    /* margin-bottom: 0px; */
+}
+
+.eventwedding-image {
+
+    width: 125px;
+
+    margin-top: 30px;
+}
+
+.event-date {
+
+    color: #F7EAD5;
+
+    font-size: 16px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.event-time {
+
+    color: #F7EAD5;
+
+    font-size: 12px;
+
+    margin-bottom: 10px;
+}
+
+.qr-code {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin-bottom: 5px;
+}
+
+.scan-text {
+
+    color: #F7EAD5;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+@media (max-width:768px) {
+
+    .haldi-card {
+
+        width: 78vw;
+        /* height: auto; */
+
+        padding: 40px 22px;
+
+    }
+
+    .event-title {
+
+        font-size: 12px;
+
+    }
+
+    .event-name {
+
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #F7EAD5;
+        font-family: "Cormorant Garamond", serif;
+
+        text-align: center;
+
+    }
+
+    .event-image {
+
+        width: 130px;
+
+    }
+
+    .event-date {
+
+        font-size: 12px;
+
+    }
+
+    .event-time {
+
+        font-size: 10px;
+
+    }
+
+
+    .qr-code {
+
+        width: 75px;
+
+        height: 75px;
+
+    }
+
+    .scan-text {
+
+        font-size: 12px;
+
+    }
+
+    .card-content {
+
+        position: absolute;
+
+        top: 105px;
+        left: 52px;
+        right: 52px;
+        bottom: 48px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .qr-code-rsvp {
+
+        width: 120px;
+
+        height: 120px;
+
+    }
+
+}
+
+.qr-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* Optional */
+}
+
+.qr-code-rsvp {
+
+    width: 120px;
+
+    height: 120px;
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .page2 {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .page2-image {
+        width: 111vw;
+        /* Increase from 120vw */
+        max-width: none;
+        height: auto;
+        object-fit: contain;
+    }
+}
+
+.page8 {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("RAS09661.JPG") center center/cover no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* overflow: hidden; */
+
+}
+
+.page9 {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    background: url("last4.png") center center/cover no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    /* overflow: hidden; */
+
+}
+
+.page9-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    color: #7C1521;
+
+    width: 90%;
+    margin-top: -400px;
+
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .page8 {
+        width: 100vw;
+        min-height: 100vh;
+        background-image: url("RAS09661.JPG");
+        background-size: 140%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        object-fit: contain;
+    }
+
+    .page6 {
+        width: 100vw;
+        min-height: 100vh;
+        background-image: url("page6.JPG");
+        background-size: 140%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        object-fit: contain;
+    }
+
+    .page9 {
+        width: 100vw;
+        min-height: 100vh;
+        background-image: url("last4.png");
+        background-size: 140%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        object-fit: contain;
+    }
+
+    .page9-content {
+
+        position: relative;
+
+        z-index: 2;
+
+        text-align: center;
+
+        color: #7C1521;
+
+        width: 90%;
+        margin-top: -400px;
+        font-size: 12px;
+        font-family: 'Cormorant Garamond', serif;
+        /* padding: 0 18px; */
+
+    }
+}
+
+/* ==========================
+   Carousel Indicator
+========================== */
+
+.carousel-indicator {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+.dot {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #d7b98b;
+
+    transition: .35s ease;
+}
+
+.dot.active {
+
+    width: 28px;
+    border-radius: 30px;
+
+    background: #7C1521;
+}
+
+/* ==========================
+   PAGE 7 HEADING
+========================== */
+
+.page7-heading {
+
+    text-align: center;
+    margin-bottom: 45px;
+
+}
+
+.page7-title {
+
+    font-family: 'Allura', cursive;
+    font-size: 42px;
+    font-weight: 600;
+    color: #7C1521;
+    letter-spacing: 1px;
+    animation: fadeUp 1s ease;
+
+}
+
+.page7-subtitle {
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+
+    color: #9A6A3A;
+
+    letter-spacing: 4px;
+
+    margin-top: 12px;
+
+    text-transform: uppercase;
+
+    animation: fadeUp 1s .25s both;
+
+}
+
+.heading-divider {
+
+    margin-top: 18px;
+
+    font-size: 26px;
+
+    color: #C8A46A;
+
+    animation: fadeUp 1s .5s both;
+
+}
+
+@media (max-width:768px) {
+
+    .page7-heading {
+
+        margin-bottom: 28px;
+
+    }
+
+    .page7-title {
+
+        font-size: 35px;
+
+
+    }
+
+    .page7-subtitle {
+
+        font-size: 15px;
+
+        letter-spacing: 2px;
+
+        margin-top: 8px;
+
+    }
+
+    .heading-divider {
+
+        font-size: 20px;
+
+        margin-top: 12px;
+
+    }
+
+}
